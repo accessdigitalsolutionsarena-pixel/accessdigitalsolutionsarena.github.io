@@ -28,7 +28,7 @@
 
     // Formspree endpoints, e.g. 'https://formspree.io/f/abcdwxyz'
     forms: {
-      contact:    '',
+      contact:    'https://formspree.io/f/mppqjgkg',
       newsletter: ''
     }
   });
