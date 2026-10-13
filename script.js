@@ -18,7 +18,7 @@
     logoMark: 'assets/logos/adsa-mark.png', // ADSA monogram crop (header + footer)
 
     links: {
-      freeSample: '',                                  // ← paste the free-sample link (Selar/other)
+      freeSample: 'https://selar.com/89q65p9857',                                  // ← paste the free-sample link (Selar/other)
       bundle1:    'https://selar.com/6p2j3l2ev8',      // Bundle 1 (verified)
       bundle2:    'https://selar.com/070m676959',      // Bundle 2 (verified)
       selar:      '',                                  // ← official ADSA Selar store URL
