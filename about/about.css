@@ -1,0 +1,69 @@
+/* ==========================================================================
+   ADSA — about/about.css
+   hero → welcome (scrubbed) → mission & vision → pinned beliefs → divisions → who/values
+   → is / stands against → why & future → call to action
+   ========================================================================== */
+.about__welcome{font-size:clamp(1.6rem,3.8vw,3.1rem);line-height:1.16;letter-spacing:-.03em;max-width:30ch;color:var(--purple)}
+
+/* Mission & vision */
+.mv{overflow:hidden}
+.mv__grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.4rem,4vw,3rem)}
+.mv__card{padding:clamp(1.8rem,4vw,3rem);border-radius:calc(var(--radius) + 6px);background:rgba(231,229,232,.05);border:1px solid rgba(231,229,232,.14);backdrop-filter:blur(6px)}
+.mv__text{font-family:var(--font-display);font-weight:800;font-size:clamp(1.4rem,2.8vw,2.2rem);line-height:1.18;letter-spacing:-.03em;color:#fff;margin:0}
+.mv__text{margin-bottom:1.4rem}
+.mv__body{margin:0;padding-top:1.4rem;border-top:1px solid rgba(201,162,39,.4);color:rgba(231,229,232,.82);font-size:clamp(.98rem,1.2vw,1.08rem);line-height:1.75}
+@media (max-width:860px){.mv__grid{grid-template-columns:1fr}}
+
+/* Beliefs (pinned) */
+.bel__grid{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(2rem,6vw,6rem);align-items:center;width:100%;max-width:var(--maxw);margin:0 auto;position:relative;z-index:2}
+.bel__steps{position:relative;padding-left:2.6rem}
+.bel__list{display:grid;gap:1.1rem}
+.belief{position:relative;padding:1.5rem 1.7rem;border-radius:var(--radius);border:1px solid rgba(231,229,232,.14);background:rgba(231,229,232,.05)}
+.belief::before{content:"";position:absolute;left:-2.6rem;top:1.7rem;width:24px;height:24px;border-radius:50%;background:var(--purple-deep);border:2px solid rgba(231,229,232,.35);transition:border-color .5s,background .5s,box-shadow .5s}
+.belief.is-on{transform:translateX(8px);background:rgba(21,8,34,.45);border-color:rgba(201,162,39,.55)}
+.belief.is-on::before{border-color:var(--gold);background:var(--gold);box-shadow:0 0 0 7px rgba(201,162,39,.18)}
+.belief.is-done::before{border-color:var(--emerald);background:var(--emerald)}
+.belief small{display:block;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:.3rem}
+.belief h3{font-size:clamp(1.3rem,2.4vw,1.9rem);color:#fff;margin-bottom:.4rem}
+.belief p{margin:0;color:rgba(231,229,232,.85);font-size:.98rem}
+@media (max-width:980px){.bel__grid{grid-template-columns:1fr;padding:5rem 0}.beliefs .pin__stage{padding-top:2rem;padding-bottom:2rem}}
+
+/* Divisions */
+.divs{margin-top:3rem;border-top:1px solid rgba(75,31,111,.2)}
+.div-row{position:relative;display:grid;grid-template-columns:3rem 12rem 1fr 1.6rem;gap:1rem;align-items:center;padding:1.5rem .4rem;text-decoration:none;color:var(--text-dark);border-bottom:1px solid rgba(75,31,111,.2);transition:padding .5s var(--ease),background .4s,color .3s}
+.div-row b{font-family:var(--font-display);font-size:.8rem;letter-spacing:.2em;color:var(--purple)}
+.div-row strong{font-family:var(--font-display);font-size:clamp(1.4rem,3vw,2.3rem);letter-spacing:-.03em}
+.div-row span{color:var(--text-mid)}
+.div-row .ext{width:22px;height:22px;color:var(--purple);transition:transform .4s var(--ease)}
+.div-row:hover,.div-row:focus-visible{padding-left:1.4rem;background:rgba(75,31,111,.06);color:var(--purple)}
+.div-row:hover .ext{transform:translate(4px,-4px)}
+@media (max-width:760px){.div-row{grid-template-columns:2.4rem 1fr 1.4rem}.div-row span{grid-column:2/3;grid-row:2}.div-row strong{grid-column:2}.div-row .ext{grid-column:3;grid-row:1}}
+
+/* Who + values */
+.who{margin-top:2rem}
+.who .chip{font-size:1rem;padding:.6rem 1.2rem}
+.sub-h{font-size:1.4rem;color:#fff;margin:4rem 0 1.4rem}
+.values{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:1.1rem}
+.value{position:relative;overflow:hidden;padding:1.6rem;border-radius:var(--radius);background:rgba(231,229,232,.05);border:1px solid rgba(231,229,232,.12);transition:border-color .5s,background .5s,transform .5s var(--ease)}
+.value::before{content:"";position:absolute;inset:0;background:radial-gradient(260px circle at var(--mx,50%) var(--my,0%),rgba(201,162,39,.18),transparent 62%);opacity:0;transition:opacity .4s}
+.value:hover::before{opacity:1}
+.value.is-cycle{border-color:rgba(201,162,39,.6);background:rgba(75,31,111,.4);transform:translateY(-4px)}
+.value b{font-family:var(--font-display);color:var(--gold);font-size:.8rem;letter-spacing:.2em}
+.value h3{font-size:1.35rem;color:#fff;margin:.5rem 0 .4rem}
+.value p{margin:0;color:rgba(231,229,232,.82);font-size:.96rem}
+
+/* Is / stands against */
+.about__cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem)}
+.about__cols h3{font-size:1.4rem;color:#fff;margin-bottom:1rem}
+@media (max-width:860px){.about__cols{grid-template-columns:1fr}}
+
+/* Why + future */
+.why__grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,6vw,5rem)}
+.why__grid .h2{font-size:clamp(1.9rem,3.8vw,3rem);max-width:14ch}
+.ticks{display:grid;gap:.9rem;margin-top:1.8rem}
+.ticks li{position:relative;padding-left:1.8rem;color:var(--text-mid)}
+.ticks li::before{content:"";position:absolute;left:0;top:.5em;width:11px;height:6px;border-left:2px solid var(--emerald);border-bottom:2px solid var(--emerald);transform:rotate(-45deg)}
+@media (max-width:860px){.why__grid{grid-template-columns:1fr}}
+
+.about__cta{overflow:hidden}
+.about__cta .h2{font-size:clamp(2.2rem,6vw,4.8rem)}
