@@ -1,0 +1,57 @@
+/* ==========================================================================
+   ADSA — resources/resources.css
+   hero → sticky sub-navigation → downloads → guides → newsletter → FAQ
+   ========================================================================== */
+.subnav{position:sticky;top:var(--header-h);transition:top .5s var(--ease);z-index:550;background:rgba(21,8,34,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(231,229,232,.1)}
+.subnav__in{max-width:var(--maxw);margin:0 auto;padding:.7rem var(--gutter);display:flex;gap:.5rem;overflow-x:auto;scrollbar-width:none}
+.subnav a{flex:none;padding:.5rem 1.1rem;border-radius:999px;text-decoration:none;font-size:.88rem;font-weight:600;color:rgba(231,229,232,.8);border:1px solid transparent;transition:color .3s,border-color .3s,background .3s}
+.subnav a:hover{color:#fff;border-color:rgba(231,229,232,.25)}
+.subnav a.is-active{background:var(--gold);color:var(--ink)}
+.header-hidden .subnav{top:0}              /* slides up when the main header hides on scroll */
+html{scroll-padding-top:calc(var(--header-h) + 3.6rem)}
+
+/* Downloads */
+.dl__grid{display:grid;grid-template-columns:1.3fr 1fr;gap:1.4rem;margin-top:3rem}
+.dl{position:relative;overflow:hidden;padding:clamp(1.6rem,3vw,2.4rem);border-radius:calc(var(--radius) + 4px);background:rgba(231,229,232,.06);border:1px solid rgba(231,229,232,.14)}
+.dl::before{content:"";position:absolute;inset:0;background:radial-gradient(320px circle at var(--mx,50%) var(--my,0%),rgba(201,162,39,.18),transparent 62%);opacity:0;transition:opacity .4s}
+.dl:hover::before{opacity:1}
+.dl h3{font-size:1.5rem;color:#fff;margin-bottom:.6rem}
+.dl p{color:rgba(231,229,232,.82)}
+.dl .eyebrow{margin-bottom:1rem}
+.dl--soon{border-style:dashed;background:transparent}
+.dl--soon .soon{margin-top:.6rem}
+@media (max-width:860px){.dl__grid{grid-template-columns:1fr}}
+
+/* Guides */
+.guides__box{margin-top:2.6rem;padding:2rem;border-radius:var(--radius);background:#fff;border:1px dashed rgba(75,31,111,.45);max-width:640px}
+.guides__box h3{color:var(--purple);font-size:1.4rem;margin-bottom:.6rem}
+.guides__box p{color:var(--text-mid)}
+
+/* Newsletter */
+.nl__grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,6vw,5rem);align-items:center}
+.nl__form{padding:clamp(1.6rem,3.5vw,2.4rem);border-radius:calc(var(--radius) + 6px);background:rgba(21,8,34,.55);border:1px solid rgba(231,229,232,.16);backdrop-filter:blur(8px)}
+.nl__form .form{margin-top:0}
+.theme-purple{overflow:hidden}
+@media (max-width:860px){.nl__grid{grid-template-columns:1fr}}
+
+/* FAQ */
+.faq{max-width:900px}
+.faq__search{margin-top:2rem}
+.faq__search input{width:100%;padding:.95rem 1.1rem;border-radius:999px;border:1.5px solid rgba(75,31,111,.3);background:#fff;font:inherit;color:var(--text-dark)}
+.faq__search input:focus{outline:none;border-color:var(--purple);box-shadow:0 0 0 3px rgba(75,31,111,.15)}
+.faq__none{margin:1rem 0 0;color:var(--text-mid)}
+.faq__none a{color:var(--purple);font-weight:600}
+.faq__list{margin-top:1.6rem;border-top:1px solid rgba(75,31,111,.18)}
+.faq__item{border-bottom:1px solid rgba(75,31,111,.18)}
+.faq__item summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1.4rem;padding:1.3rem .2rem;
+  font-family:var(--font-display);font-weight:700;font-size:clamp(1.05rem,1.8vw,1.3rem);color:var(--text-dark);transition:color .3s,padding .4s var(--ease)}
+.faq__item summary::-webkit-details-marker{display:none}
+.faq__item summary:hover{color:var(--purple);padding-left:.7rem}
+.faq__item summary i{flex:none;position:relative;width:28px;height:28px;border-radius:50%;border:1.5px solid var(--purple)}
+.faq__item summary i::before,.faq__item summary i::after{content:"";position:absolute;left:7px;right:7px;top:12px;height:2px;background:var(--purple);transition:transform .4s var(--ease)}
+.faq__item summary i::after{transform:rotate(90deg)}
+.faq__item[open] summary i::after{transform:rotate(0)}
+.faq__item[open] summary{color:var(--purple)}
+.faq__a{overflow:hidden}
+.faq__a p{margin:0;padding:0 2.6rem 1.5rem .2rem;color:var(--text-mid);max-width:68ch}
+.faq__item[hidden]{display:none}

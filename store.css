@@ -1,0 +1,48 @@
+/* ==========================================================================
+   ADSA — store/store.css
+   Commerce = Purple → Emerald.  hero → pinned rules → aisle map → notify
+   ========================================================================== */
+.store__rules{background:linear-gradient(180deg,var(--ink),#0e1f1b 120%)}
+.rules__grid{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(2rem,6vw,6rem);align-items:center;width:100%;max-width:var(--maxw);margin:0 auto;position:relative;z-index:2}
+.store__rules .pin__stage::before{content:"";position:absolute;inset:0;background:radial-gradient(70% 60% at calc(80% - var(--p,0)*60%) 50%,rgba(22,124,90,.4),transparent 70%);pointer-events:none}
+.store__rules .h2 em{color:#3fcf9c}
+.rules__steps{position:relative;padding-left:2.6rem}
+.rail--emerald i{background:linear-gradient(#3fcf9c,var(--gold))}
+.rules__list{display:grid;gap:1.1rem}
+.rule{position:relative;padding:1.4rem 1.6rem;border-radius:var(--radius);border:1px solid rgba(231,229,232,.1);background:rgba(231,229,232,.03)}
+.rule::before{content:"";position:absolute;left:-2.6rem;top:1.6rem;width:24px;height:24px;border-radius:50%;background:var(--ink);border:2px solid rgba(231,229,232,.3);transition:border-color .5s,background .5s,box-shadow .5s}
+.rule.is-on{transform:translateX(8px);background:rgba(22,124,90,.22);border-color:rgba(63,207,156,.55)}
+.rule.is-on::before{border-color:#3fcf9c;background:#3fcf9c;box-shadow:0 0 0 7px rgba(63,207,156,.18)}
+.rule.is-done::before{border-color:var(--gold);background:var(--gold)}
+.rule small{display:block;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:#3fcf9c;font-weight:700;margin-bottom:.3rem}
+.rule h3{font-size:clamp(1.3rem,2.2vw,1.8rem);color:#fff;margin-bottom:.3rem}
+.rule p{margin:0;color:rgba(231,229,232,.82);font-size:.98rem}
+@media (max-width:980px){.rules__grid{grid-template-columns:1fr;padding:5rem 0}.store__rules .pin__stage{padding-top:2rem;padding-bottom:2rem}}
+
+/* Aisle map */
+.aisles .num{-webkit-text-stroke-color:rgba(22,124,90,.28)}
+.aisles .h2 em{color:var(--emerald)}
+.aisle__grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));gap:1rem;margin-top:3rem}
+.aisle{position:relative;display:flex;flex-direction:column;gap:.7rem;min-height:190px;padding:1.4rem;border-radius:var(--radius);background:#fff;border:1px dashed rgba(22,124,90,.5);overflow:hidden;
+  opacity:.55;transition:opacity .8s var(--ease),transform .5s var(--ease),border-color .4s,box-shadow .4s}
+.aisle::before{content:"";position:absolute;inset:0;background:radial-gradient(260px circle at var(--mx,50%) var(--my,0%),rgba(22,124,90,.16),transparent 62%);opacity:0;transition:opacity .4s}
+.aisle:hover::before{opacity:1}
+.aisle::after{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:linear-gradient(90deg,var(--emerald),var(--gold));transform:scaleX(0);transform-origin:left}
+.aisle.lit{opacity:1;border-style:solid;border-color:rgba(22,124,90,.35)}
+.aisle.lit::after{transform:scaleX(1);transition:transform 1s var(--ease-cine)}   /* emerald scan-line as each aisle "switches on" */
+.aisle:hover{transform:translateY(-4px);box-shadow:0 22px 40px -24px rgba(22,124,90,.55)}
+.aisle b{font-family:var(--font-display);color:var(--emerald);font-size:.8rem;letter-spacing:.2em}
+.aisle h3{font-size:1.3rem;color:var(--purple)}
+.aisle .soon{margin-top:auto;align-self:flex-start;color:#0f6247}
+.aisle--wide{grid-column:span 2}
+.aisle__subs .chip{font-size:.8rem;padding:.3rem .7rem;color:var(--text-dark)}
+@media (max-width:560px){.aisle--wide{grid-column:auto}}
+@media (prefers-reduced-motion:reduce){.aisle{opacity:1}}
+
+/* Notify */
+.notify{overflow:hidden}
+.notify__grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,6vw,5rem);align-items:center}
+.notify__form{padding:clamp(1.6rem,3.5vw,2.4rem);border-radius:calc(var(--radius) + 6px);background:rgba(21,8,34,.55);border:1px solid rgba(231,229,232,.16);backdrop-filter:blur(8px)}
+.notify__form .form{margin-top:0}
+.notify .h2 em{color:var(--gold)}
+@media (max-width:860px){.notify__grid{grid-template-columns:1fr}}
